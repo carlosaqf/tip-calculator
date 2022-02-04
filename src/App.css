@@ -1,38 +1,76 @@
-.App {
+@import url(https://fonts.googleapis.com/css2?family=Space+Mono);
+
+:root {
+  --primary: hsl(172, 67%, 45%);
+
+  --neutral-100: hsl(183, 100%, 15%);
+  --neutral-80: hsl(186, 14%, 43%);
+  --neutral-50: hsl(184, 14%, 56%);
+  --neutral-30: hsl(185, 41%, 84%);
+  --neutral-10: hsl(189, 41%, 97%);
+  --neutral-00: hsl(0, 0%, 100%);
+
+  --font-size: 1.5rem;
+
+  --font-family: "Space Mono";
+
+  --weight-light: 400;
+  --weight-medium: 500;
+  --weight-heavy: 700;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.app-container {
+  margin: 0 auto;
+  background-color: var(--neutral-30);
+}
+
+.app-title {
+  margin: 0;
+  text-align: center;
+  font-size: var(--font-size);
+  font-family: var(--font-family);
+  color: var(--neutral-100);
+}
+
+.app-form-container {
+  background-color: var(--neutral-00);
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
+
+.app-form-container input {
+  width: 50%;
+}
+
+.amount-total-container {
+  background-color: var(--neutral-100);
+  width: 90%;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.amount-total-container .reset-button {
+  border: none;
+  background-color: var(--neutral-30);
+  padding: 0.25rem 2rem 0.25rem 2rem;
+  border-radius: 0.25rem;
+  width: 100%;
+}
+
+/* Footer Class */
+.attribution {
+  font-size: 0.688rem;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.attribution a {
+  color: var(--primary);
 }
