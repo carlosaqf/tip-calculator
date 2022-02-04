@@ -10,7 +10,7 @@
   --neutral-10: hsl(189, 41%, 97%);
   --neutral-00: hsl(0, 0%, 100%);
 
-  --font-size: 1.5rem;
+  --font-size: 1rem;
 
   --font-family: "Space Mono";
 
@@ -28,25 +28,69 @@
 .app-container {
   margin: 0 auto;
   background-color: var(--neutral-30);
+  display: flex;
+  flex-direction: column;
 }
 
-.app-title {
+.app-logo {
   margin: 0;
-  text-align: center;
-  font-size: var(--font-size);
-  font-family: var(--font-family);
-  color: var(--neutral-100);
+  align-self: center;
+  padding: 2rem;
 }
 
 .app-form-container {
   background-color: var(--neutral-00);
-  display: grid;
-  align-items: center;
-  justify-content: center;
+  border-radius: 1rem 1rem 0 0;
+  padding: 1.5rem 1rem 0 1rem;
 }
 
-.app-form-container input {
-  width: 50%;
+.app-form {
+  display: grid;
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  font-weight: var(--weight-light);
+  color: var(--neutral-80);
+}
+
+.app-form .bill-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.bill-container > input {
+  border: none;
+  background-color: var(--neutral-10);
+  height: 2.5rem;
+  text-align: right;
+  font-family: var(--font-family);
+  color: var(--neutral-100);
+  font-weight: var(--weight-heavy);
+  padding-right: 1rem;
+  border-radius: 0.25rem;
+}
+
+/* REMOVE ARROWS FROM INPUT[TYPE="NUMBER"] */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.bill-container > svg {
+  position: absolute;
+  top: 2.25rem;
+  left: 0.75rem;
+}
+
+.app-form > input {
+}
+
+.tip-button-group {
+  border: 2px solid green;
 }
 
 .amount-total-container {
@@ -69,6 +113,7 @@
 .attribution {
   font-size: 0.688rem;
   text-align: center;
+  border: 2px solid yellow;
 }
 
 .attribution a {
