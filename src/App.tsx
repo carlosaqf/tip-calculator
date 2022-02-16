@@ -1,45 +1,79 @@
 import './App.css';
 import { ReactComponent as SplitterLogo } from './images/logo.svg';
+import  Button  from './components/Button/button';
+import Input from './components/Input/input';
+import ButtonGroup from './components/ButtonGroup/button-group';
+import Amount from './components/Amount/amount';
+import { ThemeProvider } from 'styled-components';
+import { myTheme } from './my-theme';
+import React, { useState } from 'react';
 
 const App = () => {
+  
+  const [value, setValue] = useState();
+
+  const [billValue, setBillValue] = useState<number>(200);
+  const [numPeople, setNumPeople] = useState<number>(5);
+  const [tipPerPerson, setTipPerPerson] = useState<number>(0);
+  const [totalPerPerson, setTotalPerPerson] = useState<number>(0);
+
+  const handleTipPerPerson = (tipPercentage: number) => {
+    const tipAmount = billValue * (tipPercentage / 100);
+    console.log(tipAmount);
+    setTipPerPerson(tipAmount);
+  }
+
   return (
-    <>
+    <ThemeProvider theme={myTheme}>
+      
+      
       <div className="app-container">
-
-
         <div className="app-logo">
           <SplitterLogo />
         </div>
 
+
         <div className="app-form-container">
+          
           <form className="app-form">
 
-            <div className="bill-container">
-              <label htmlFor="bill">Bill</label>
-              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="17"><path fill="#9EBBBD" d="M6.016 16.328v-1.464c1.232-.08 2.22-.444 2.964-1.092.744-.648 1.116-1.508 1.116-2.58v-.144c0-.992-.348-1.772-1.044-2.34-.696-.568-1.708-.932-3.036-1.092V4.184c.56.144 1.012.4 1.356.768.344.368.516.816.516 1.344v.288h1.824v-.432c0-.448-.088-.876-.264-1.284a3.783 3.783 0 00-.744-1.116A4.251 4.251 0 007.54 2.9a5.324 5.324 0 00-1.524-.492V.872H4.288V2.36a5.532 5.532 0 00-1.416.324c-.448.168-.84.392-1.176.672-.336.28-.604.616-.804 1.008-.2.392-.3.844-.3 1.356v.144c0 .96.316 1.708.948 2.244.632.536 1.548.884 2.748 1.044v3.912c-.704-.16-1.248-.472-1.632-.936-.384-.464-.576-1.08-.576-1.848v-.288H.256v.576c0 .464.08.924.24 1.38.16.456.404.88.732 1.272.328.392.744.728 1.248 1.008s1.108.476 1.812.588v1.512h1.728zM4.288 7.424c-.688-.128-1.164-.332-1.428-.612-.264-.28-.396-.644-.396-1.092 0-.464.176-.832.528-1.104.352-.272.784-.448 1.296-.528v3.336zm1.728 5.712V9.344c.768.128 1.328.328 1.68.6.352.272.528.688.528 1.248 0 .544-.196.984-.588 1.32-.392.336-.932.544-1.62.624z"/></svg><svg xmlns="http://www.w3.org/2000/svg" width="11" height="17"><path fill="#9EBBBD" d="M6.016 16.328v-1.464c1.232-.08 2.22-.444 2.964-1.092.744-.648 1.116-1.508 1.116-2.58v-.144c0-.992-.348-1.772-1.044-2.34-.696-.568-1.708-.932-3.036-1.092V4.184c.56.144 1.012.4 1.356.768.344.368.516.816.516 1.344v.288h1.824v-.432c0-.448-.088-.876-.264-1.284a3.783 3.783 0 00-.744-1.116A4.251 4.251 0 007.54 2.9a5.324 5.324 0 00-1.524-.492V.872H4.288V2.36a5.532 5.532 0 00-1.416.324c-.448.168-.84.392-1.176.672-.336.28-.604.616-.804 1.008-.2.392-.3.844-.3 1.356v.144c0 .96.316 1.708.948 2.244.632.536 1.548.884 2.748 1.044v3.912c-.704-.16-1.248-.472-1.632-.936-.384-.464-.576-1.08-.576-1.848v-.288H.256v.576c0 .464.08.924.24 1.38.16.456.404.88.732 1.272.328.392.744.728 1.248 1.008s1.108.476 1.812.588v1.512h1.728zM4.288 7.424c-.688-.128-1.164-.332-1.428-.612-.264-.28-.396-.644-.396-1.092 0-.464.176-.832.528-1.104.352-.272.784-.448 1.296-.528v3.336zm1.728 5.712V9.344c.768.128 1.328.328 1.68.6.352.272.528.688.528 1.248 0 .544-.196.984-.588 1.32-.392.336-.932.544-1.62.624z"/></svg>
-              <input type="number" id="bill" />
-            </div>
+            <Input 
+              type="number"
+              id="bill"
+              label="Bill"
+              svg="iconDollar"
+            />
 
-            <label htmlFor="tip-button-group">Select Tip %</label>
-            <div className="tip-button-group" id="tip-button-group">
-              <button>5%</button>
-              <button>10%</button>
-              <button>15%</button>
-              <button>25%</button>
-              <button>50%</button>
-              <input type="number" />
-            </div>
+            <ButtonGroup label="Select Tip %" id="tip-button-group">
+              <Button 
+                text="5%" 
+                value={5}
+                handleTipPerPerson={handleTipPerPerson}
+              />
 
-            <label htmlFor="people-count">Number of People</label>
-            <input type="number" id="people-count" />
+              <Button text="10%" value={10} handleTipPerPerson={handleTipPerPerson}/>
+              <Button text="15%" value={15} handleTipPerPerson={handleTipPerPerson}/>
+              <Button text="25%" value={25} handleTipPerPerson={handleTipPerPerson}/>
+              <Button text="50%" value={50} handleTipPerPerson={handleTipPerPerson}/>
+              <Input 
+                type="number"
+                placeholder="Custom"
+                />
+            </ButtonGroup>
 
-            <div className="amount-total-container">
-              <p>Tip Amount / person</p>
-              <h4>$4.27</h4>
-              <p>Total / person</p>
-              <h4>$32.79</h4>
-              <button className="reset-button">Reset</button>
-            </div>
+            <Input 
+              type="number"
+              label="Number of People"
+              id="people-count"
+              svg="iconPerson"
+            />
+
+            <Amount 
+              tipPerPerson={tipPerPerson}
+              totalPerPerson={totalPerPerson}
+            >
+              <Button text="Reset" inverse handleTipPerPerson={handleTipPerPerson}/>
+            </Amount>
           </form>
         </div>
       </div> 
@@ -48,7 +82,7 @@ const App = () => {
         Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank" rel="noreferrer">Frontend Mentor</a>. 
         Coded by <a href="https://www.github.com/carlosaqf" target="_blank" rel="noreferrer">Carlos Fegurgur</a>.
       </footer>
-    </>
+    </ThemeProvider>
   );
 }
 

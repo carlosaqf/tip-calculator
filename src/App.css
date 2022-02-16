@@ -41,7 +41,9 @@
 .app-form-container {
   background-color: var(--neutral-00);
   border-radius: 1rem 1rem 0 0;
-  padding: 1.5rem 1rem 0 1rem;
+  padding: 2rem;
+  max-width: 80rem;
+  margin: 0 auto;
 }
 
 .app-form {
@@ -50,24 +52,7 @@
   font-size: var(--font-size);
   font-weight: var(--weight-light);
   color: var(--neutral-80);
-}
-
-.app-form .bill-container {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-}
-
-.bill-container > input {
-  border: none;
-  background-color: var(--neutral-10);
-  height: 2.5rem;
-  text-align: right;
-  font-family: var(--font-family);
-  color: var(--neutral-100);
-  font-weight: var(--weight-heavy);
-  padding-right: 1rem;
-  border-radius: 0.25rem;
+  grid-gap: 0.5rem;
 }
 
 /* REMOVE ARROWS FROM INPUT[TYPE="NUMBER"] */
@@ -78,35 +63,6 @@ input[type="number"] {
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
-}
-
-.bill-container > svg {
-  position: absolute;
-  top: 2.25rem;
-  left: 0.75rem;
-}
-
-.app-form > input {
-}
-
-.tip-button-group {
-  border: 2px solid green;
-}
-
-.amount-total-container {
-  background-color: var(--neutral-100);
-  width: 90%;
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-}
-
-.amount-total-container .reset-button {
-  border: none;
-  background-color: var(--neutral-30);
-  padding: 0.25rem 2rem 0.25rem 2rem;
-  border-radius: 0.25rem;
-  width: 100%;
 }
 
 /* Footer Class */
