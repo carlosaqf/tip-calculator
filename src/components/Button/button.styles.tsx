@@ -23,4 +23,9 @@ export const Button = styled.button`
 		background-color: ${props => props.theme.colors.primary};
 		color: ${props => props.theme.colors.neutral_100};
 	`}
+
+	&.active{
+		background-color: ${props => props.theme.colors.primary};
+		color: ${props => props.theme.colors.neutral_100};
+	}
 `
