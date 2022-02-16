@@ -12,16 +12,16 @@ interface InputProps {
 	id?: string;
 	placeholder?: string;
 	svg?: string;
-	onChange?: Function;
+	onChange?: (e: any) => void;
 	value?: number;
 }
 
-const Input: FC<InputProps> = ({ type, label, size, id, placeholder, svg }) => {
+const Input: FC<InputProps> = ({ type, label, size, id, placeholder, svg, onChange }) => {
 	return (
 		<InputWrapper>
 			{ label ? <label htmlFor={id}>{label}</label> : '' }
 			{ svg ? <StyledSVG svg={svg} /> : '' }
-			<StyledInput type={type} id={id} placeholder={placeholder} {...size} />
+			<StyledInput type={type} id={id} placeholder={placeholder} onChange={onChange} />
 		</InputWrapper>
 
 	)
