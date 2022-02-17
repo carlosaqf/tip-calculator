@@ -6,11 +6,12 @@ interface AmountProps {
 	billValue?: number;
 	numPeople?: number;
 	tipPercentage?: number;
+	id?: string;
 }
 
 const Amount: FC<AmountProps> = (props) => {
 	const { children } = props;
-	const { billValue, numPeople, tipPercentage } = props;
+	const { billValue, numPeople, tipPercentage, id } = props;
 
 	let tipAmountPerPerson;
 	let totalPerPerson;
@@ -21,7 +22,7 @@ const Amount: FC<AmountProps> = (props) => {
 	}
 
 	return (
-		<AmountContainer>
+		<AmountContainer id={id}>
 			<div className='tip-amount'>
 				<p>Tip Amount</p>
 				<p className='person'>/ person</p>

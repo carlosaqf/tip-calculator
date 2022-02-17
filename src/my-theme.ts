@@ -1,5 +1,6 @@
 import { DefaultTheme } from 'styled-components';
 
+// set defaults in styled.d.ts file
 const myTheme: DefaultTheme = {
 	borderRadius: '0.25rem',
 
