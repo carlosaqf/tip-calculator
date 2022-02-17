@@ -5,7 +5,7 @@ interface ButtonProps {
 	text: string;
 	props?: object;
 	inverse?: boolean;
-	value?: number;
+	value?: number | string;
 	onClick?: (e: any) => void;
 	id?: string;
 }
