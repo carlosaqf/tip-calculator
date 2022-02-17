@@ -9,12 +9,12 @@ interface ButtonGroupProps {
 const ButtonGroup: FC<ButtonGroupProps> = (props) => {
 	const { children, label, id } = props;
 	return (
-		<>
+		<div id={id}>
 			{ label ? <label htmlFor={id}>{label}</label> : '' }
-			<StyledButtonGroup id={id}>
+			<StyledButtonGroup>
 				{ children }
 			</StyledButtonGroup>		
-		</>
+		</div>
 	)
 }
 

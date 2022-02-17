@@ -13,6 +13,7 @@ export const Button = styled.button`
 	border: none;
 	margin: 0.25rem;
 	border-radius: ${props => props.theme.borderRadius};
+	cursor: pointer;
 
 	&:active, &:hover{
 		background-color: ${props => props.theme.colors.primary};

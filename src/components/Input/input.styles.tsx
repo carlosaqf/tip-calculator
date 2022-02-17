@@ -12,6 +12,19 @@ export const Input = styled.input`
 	font-weight: 700;
 	padding-right: 1rem;
 	border-radius: 0.25rem;
+
+	-moz-appearance: textfield;
+	
+	&::-webkit-outer-spin-button,
+	&::-webkit-inner-spin-button {
+		-webkit-appearance: none;
+	}
+
+	&:focus{
+		outline: none;
+		border: 0.125rem solid ${props => props.theme.colors.primary};
+		cursor: pointer;
+	}
 `
 
 export const SVG = styled.div<{ svg: string }>`

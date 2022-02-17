@@ -1,3 +1,23 @@
+@import url(https://fonts.googleapis.com/css2?family=Space+Mono);
+
+:root {
+  --neutral-30: hsl(185, 41%, 84%);
+
+  --font-size: 1rem;
+
+  --font-family: "Space Mono";
+
+  --weight-light: 400;
+  --weight-medium: 500;
+  --weight-heavy: 700;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -5,4 +25,5 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--neutral-30);
 }
