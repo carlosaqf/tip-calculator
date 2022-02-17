@@ -20,6 +20,14 @@ const App = () => {
 
   const handleButtonClick = (e: any) => {
     e.preventDefault();
+    if (e.target.value === 'reset'){
+      setTipPercentage(0);
+      setNumPeople(0);
+      setBillValue(0);
+      (document.getElementById('people-count') as HTMLInputElement).value = '';
+      (document.getElementById('bill') as HTMLInputElement).value = '';
+    }
+
     setTipPercentage(Number(e.target.value));
 
     const allButtons = e.target.parentElement.querySelectorAll('#tip-button');
@@ -63,6 +71,7 @@ const App = () => {
               id="bill"
               label="Bill"
               svg="iconDollar"
+              placeholder="0"
               onChange={(e: any) => handleInputChange(e)}
             />
 
@@ -85,6 +94,7 @@ const App = () => {
               label="Number of People"
               id="people-count"
               svg="iconPerson"
+              placeholder="0"
               onChange={(e: any) => handleInputChange(e)}
             />
 
@@ -93,7 +103,7 @@ const App = () => {
               numPeople={numPeople}
               tipPercentage={tipPercentage}
             >
-              <Button text="Reset" inverse onClick={(e) => handleButtonClick(e)} />
+              <Button text="Reset" value="reset" inverse onClick={(e) => handleButtonClick(e)} />
             </Amount>
           </form>
         </div>
