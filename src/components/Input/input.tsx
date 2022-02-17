@@ -17,11 +17,14 @@ interface InputProps {
 }
 
 const Input: FC<InputProps> = ({ type, label, size, id, placeholder, svg, onChange }) => {
+
+	const containerId = `${id}-container`;
+
 	return (
-		<InputWrapper id={id}>
+		<InputWrapper id={containerId}>
 			{ label ? <label htmlFor={id}>{label}</label> : '' }
 			{ svg ? <StyledSVG svg={svg} /> : '' }
-			<StyledInput type={type} placeholder={placeholder} onChange={onChange} />
+			<StyledInput id={id} type={type} placeholder={placeholder} onChange={onChange} />
 		</InputWrapper>
 
 	)
