@@ -20,7 +20,7 @@ const App = () => {
     e.preventDefault();
     setTipPercentage(Number(e.target.value));
 
-    const allButtons = e.target.parentElement.querySelectorAll('#tip-button');
+    const allButtons = document.querySelectorAll('#tip-button');
 
     allButtons.forEach((button: any) => {
       if (e.target === button){
@@ -84,10 +84,10 @@ const App = () => {
 						<Button text="25%" value={25} onClick={(e) => handleButtonClick(e)} id="tip-button" />
 						<Button text="50%" value={50} onClick={(e) => handleButtonClick(e)} id="tip-button" />
 						<Input 
-						type="number"
-						placeholder="Custom"
-						id="custom-tip"
-						onChange={(e: any) => handleInputChange(e)}
+							type="number"
+							placeholder="Custom"
+							id="custom-tip"
+							onChange={(e: any) => handleInputChange(e)}
 						/>
 					</ButtonGroup>
 
