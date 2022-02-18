@@ -7,7 +7,7 @@ interface ButtonProps {
 	inverse?: boolean;
 	value?: number | string;
 	onClick?: (e: any) => void;
-	id?: string;
+	className?: string;
 }
 const Button: FC<ButtonProps> = ({ text, ...props }) => {
 	return (

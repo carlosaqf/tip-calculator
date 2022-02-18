@@ -20,7 +20,7 @@ const App = () => {
     e.preventDefault();
     setTipPercentage(Number(e.target.value));
 
-    const allButtons = document.querySelectorAll('#tip-button');
+    const allButtons = document.querySelectorAll('.tip-button');
 
     allButtons.forEach((button: any) => {
       if (e.target === button){
@@ -42,7 +42,7 @@ const App = () => {
     (document.getElementById('custom-tip') as HTMLInputElement).value = '';
     
 
-    const allButtons = document.querySelectorAll('#tip-button');
+    const allButtons = document.querySelectorAll('.tip-button');
     allButtons.forEach((button: any) => {
       button.classList.remove('active'); 
     })
@@ -56,7 +56,7 @@ const App = () => {
       setNumPeople(Number(e.target.value));
     }else if (e.target.id === 'custom-tip'){
       setTipPercentage(Number(e.target.value));
-      const allButtons = document.querySelectorAll('#tip-button');
+      const allButtons = document.querySelectorAll('.tip-button');
       allButtons.forEach((button: any) => {
         button.classList.remove('active');
       })
@@ -78,11 +78,11 @@ const App = () => {
 					/>
 
 					<ButtonGroup label="Select Tip %" id="tip-button-group">
-						<Button text="5%" value={5} onClick={(e) => handleButtonClick(e)} id="tip-button" />
-						<Button text="10%" value={10} onClick={(e) => handleButtonClick(e)} id="tip-button" />
-						<Button text="15%" value={15} onClick={(e) => handleButtonClick(e)} id="tip-button" />
-						<Button text="25%" value={25} onClick={(e) => handleButtonClick(e)} id="tip-button" />
-						<Button text="50%" value={50} onClick={(e) => handleButtonClick(e)} id="tip-button" />
+						<Button text="5%" value={5} onClick={(e) => handleButtonClick(e)} className="tip-button" />
+						<Button text="10%" value={10} onClick={(e) => handleButtonClick(e)} className="tip-button" />
+						<Button text="15%" value={15} onClick={(e) => handleButtonClick(e)} className="tip-button" />
+						<Button text="25%" value={25} onClick={(e) => handleButtonClick(e)} className="tip-button" />
+						<Button text="50%" value={50} onClick={(e) => handleButtonClick(e)} className="tip-button" />
 						<Input 
 							type="number"
 							placeholder="Custom"
